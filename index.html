@@ -41,7 +41,7 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero" class="active">Personal Data</a></li>
+          <li><a href="#hero" class="active">About</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#education">Education</a></li>
@@ -494,45 +494,111 @@
           </div>
 
           <div class="col-lg-7">
-            <div class="contact-form" data-aos="fade-up" data-aos-delay="300">
-              <h3>Get In Touch</h3>
-              <p>
-                I’m open to professional collaborations, freelance work, and career opportunities.
-                <br>
-                Feel free to get in touch with your name, email, subject, and message, and I’ll respond as soon as possible.
-              </p>
+            <div class="contact-form" style="justify-content: center;" data-aos="fade-up" data-aos-delay="300">
+              <div id="form-container">
+                <h3>Get In Touch</h3>
+                <p>
+                  I’m open to professional collaborations, freelance work, and career opportunities.
+                  <br>
+                  Feel free to get in touch with your name, email, subject, and message, and I’ll respond as soon as possible.
+                </p>
 
-              <form action="https://formsubmit.co/mohamed.ahmed.abdelrazek.dev@gmail.com" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-                <div class="row gy-4">
-
-                  <div class="col-md-6">
-                    <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                <form 
+                  action="https://docs.google.com/forms/d/e/1FAIpQLSesXEHwnaoQvZ5RTw98fPn_6-KSH2wWZTM1x7AG_Rgcp6BDSQ/formResponse" 
+                  method="post" 
+                  target="hidden_iframe" 
+                  onsubmit="showSuccessMessage()" 
+                  data-aos="fade-up" 
+                  data-aos-delay="200"
+                >
+                  <div class="row gy-4">
+                  
+                    <div class="col-md-6">
+                      <input type="text" name="entry.122080190" class="form-control" placeholder="Your Name" required>
+                    </div>
+                  
+                    <div class="col-md-6">
+                      <input type="email" name="entry.544575445" class="form-control" placeholder="Your Email" required>
+                    </div>
+                  
+                    <div class="col-12">
+                      <input type="text" name="entry.768159491" class="form-control" placeholder="Subject" required>
+                    </div>
+                  
+                    <div class="col-12">
+                      <textarea name="entry.1486864142" class="form-control" rows="6" placeholder="Message" required></textarea>
+                    </div>
+                  
+                    <div class="col-12 text-center">
+                      <button type="submit" class="btn">Send Message</button>
+                    </div>
+                  
                   </div>
+                </form>
 
-                  <div class="col-md-6 ">
-                    <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                  </div>
+                <iframe name="hidden_iframe" style="display:none;"></iframe>
 
-                  <div class="col-12">
-                    <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                  </div>
-
-                  <div class="col-12">
-                    <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-                  </div>
-
-                  <div class="col-12 text-center">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                    <button type="submit" class="btn">Send Message</button>
-                  </div>
-
+                <div id="successMessage" style="display:none; color:green; margin-top:15px; text-align:center;">
+                  Your message has been sent successfully. Thank you!
                 </div>
-              </form>
 
+
+
+              </div>
+
+              <div id="success-container" style="width: 100%; height: 100%; display: none; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; background-color: #f8f9fa; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                <!-- Animated Checkmark SVG -->
+                <svg viewBox="0 0 64 64" aria-hidden="true" style="width: 80px; aspect-ratio: 1/1; margin-inline: auto; animation: scaleIn 0.5s ease-out;">
+                  <circle cx="32" cy="32" r="30" fill="var(--accent-color, #4CAF50)" opacity="0.15" style="transform-origin: center; animation: pulse 2s infinite ease-in-out;"/>
+                  <path d="M16 33l11 11 21-28" stroke="var(--accent-color, #4CAF50)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 60; stroke-dashoffset: 60; animation: drawCheckmark 0.75s ease-out forwards 0.25s;"/>
+                </svg>
+
+                <!-- Message Text -->
+                <div style="color: var(--text-color, #333); margin-block: 1.5rem; width: 100%; max-width: 400px; text-align: center; font-size: 1.1rem; line-height: 1.6; animation: fadeIn 0.75s ease-out;">
+                  Thank you for your message. It is currently under review, and we will get in touch with you shortly.
+                </div>
+
+                <!-- Optional Progress Indicator -->
+                <div style="width: 80%; height: 6px; background-color: rgba(0,0,0,0.1); border-radius: 3px; overflow: hidden; margin-top: 1rem;">
+                  <div style="width: 100%; height: 100%; background-color: var(--accent-color, #4CAF50); animation: progress 2s ease-in-out infinite;"></div>
+                </div>
+              </div>
+
+              <style>
+                @keyframes drawCheckmark {
+                  to { stroke-dashoffset: 0; }
+                }
+
+                @keyframes scaleIn {
+                  from { transform: scale(0.8); opacity: 0; }
+                  to { transform: scale(1); opacity: 1; }
+                }
+
+                @keyframes fadeIn {
+                  from { opacity: 0; transform: translateY(10px); }
+                  to { opacity: 1; transform: translateY(0); }
+                }
+
+                @keyframes pulse {
+                  0% { transform: scale(1); opacity: 0.15; }
+                  50% { transform: scale(1.05); opacity: 0.2; }
+                  100% { transform: scale(1); opacity: 0.15; }
+                }
+
+                @keyframes progress {
+                  0% { transform: translateX(-100%); }
+                  100% { transform: translateX(100%); }
+                }
+              </style>
+              <script>
+                  function showSuccessMessage() {
+                    document.getElementById('form-container').style.display = 'none';
+                    document.getElementById('success-container').style.display = 'flex';
+                  }
+              </script>
             </div>
+
+
           </div>
 
         </div>
