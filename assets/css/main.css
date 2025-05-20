@@ -701,16 +701,29 @@ section,
   width: 60px;
   height: 3px;
   background: var(--accent-color);
+  border-radius: 5px;
   left: 0;
   right: 0;
   bottom: 0;
   margin-inline: auto;
+  animation: fader-frame 4s infinite ease;
 }
 
 .section-title p {
   margin-bottom: 0;
 }
 
+@keyframes fader-frame {
+  from {
+    width: 40px;
+  }
+  50% {
+    width: 60px;
+  }
+  to {
+    width: 40px;
+  }
+}
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
@@ -2324,12 +2337,9 @@ section,
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
-}
 
 #circle-image-wrapper {
-  padding: 60px; /* Add padding here */
+  padding: 15%; /* Add padding here */
   /* border: 5px solid var(--accent-color); */
   border-radius: 5%;
   display: inline-block;
@@ -2385,3 +2395,77 @@ section,
   font-weight: 400;
 }
 
+.experience-title {
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.2;
+  font-weight: 600;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.experience-description {
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.2;
+  font-weight: 400;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.experience-list {
+  list-style: none;
+  padding-left: 30px;
+  margin: 0;
+}
+
+.experience-list li {
+  position: relative;
+  padding-left: 1.2em;
+  margin-bottom: 1em;
+}
+
+.experience-list li::before {
+  content: "*";
+  color: #2196F3;
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* carousel */
+
+.gallery {
+  display: inline-block;
+}
+.gallery img { 
+  border-radius: 10px;
+  width: 22%;
+  aspect-ratio: 8/6;
+  height: auto;
+  margin-inline: 1%;
+  margin-block: 20px;
+  object-fit: cover;
+}
+.gallery img:hover { 
+   transform: scale(1.1);
+  animation: scale-up 1s ease;
+}
+.gallery img:not(hover) { 
+   transform: scale(1);
+  animation: scale-down 1s ease;
+}
+@keyframes scale-up {
+  from {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+@keyframes scale-down {
+  from {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
