@@ -1,0 +1,51 @@
+.gallery {
+  display: inline-block;
+}
+.gallery h1 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.2;
+  font-weight: 700;
+  font-family: Tahoma, 'Segoe UI', Geneva, Verdana, sans-serif;
+}
+.gallery img {
+  border-radius: 10px;
+  width: 22%;
+  margin-inline: 1%;
+  margin-block: 1%;
+  object-fit: cover;
+}
+.gallery img:hover { 
+   transform: scale(1.1);
+  animation: scale-up 1s ease;
+}
+.gallery img:not(hover) { 
+   transform: scale(1);
+  animation: scale-down 1s ease;
+}
+@keyframes scale-up {
+  from {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+@keyframes scale-down {
+  from {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 800px) {
+  .gallery img {
+    border-radius: 10px;
+    width: 47%;
+    margin-inline: 1%;
+    margin-block: 1%;
+    object-fit: cover;
+  }
+}
