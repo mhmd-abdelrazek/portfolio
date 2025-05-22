@@ -32,6 +32,27 @@
 </head>
 
 <body class="index-page">
+  <!-- IP Sender -->
+   <script>
+    function sendToGoogleForm(ip) {
+      const formURL = "https://docs.google.com/forms/d/e/1FAIpQLSfAJPnXA1TKtTLdHh4jDk5LutLZnChIv1OzWfyJrbZhlrXQoQ/formResponse";
+
+      const formData = new FormData();
+      formData.append("entry.269965561", ip);
+
+      fetch(formURL, {
+        method: "POST",
+        mode: "no-cors",
+        body: formData
+      });
+    }
+
+    fetch("https://api.ipify.org?format=json")
+      .then(res => res.json())
+      .then(data => {
+        sendToGoogleForm(data.ip);
+      });
+  </script>
 
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ERBB7FGSGG"></script>
